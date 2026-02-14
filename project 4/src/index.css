@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: 79 70 229; /* Indigo-600 */
+    --brand-primary-rgb: 79, 70, 229;
+    
+    /* Light Theme Tokens */
+    --ui-bg: 255 255 255;
+    --ui-surface: 248 250 252;
+    --ui-border: 226 232 240;
+    --ui-text-main: 15 23 42;
+    --ui-text-muted: 100 116 139;
+    --ui-accent: 79 70 229;
+    --ui-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  [data-theme='dark'] {
+    --ui-bg: 15 23 42;
+    --ui-surface: 30 41 59;
+    --ui-border: 51 65 85;
+    --ui-text-main: 241 245 249;
+    --ui-text-muted: 148 163 184;
+    --ui-accent: 99 102 241;
+    --ui-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  }
+
+  body {
+    @apply antialiased transition-colors duration-300;
+    background-color: rgb(var(--ui-bg));
+    color: rgb(var(--ui-text-main));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .prof-card {
+    @apply rounded-2xl border transition-all duration-300;
+    background-color: rgb(var(--ui-surface));
+    border-color: rgb(var(--ui-border));
+    box-shadow: var(--ui-shadow);
+  }
+  
+  .prof-input {
+    @apply w-full px-4 py-2.5 rounded-xl border transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20 bg-transparent;
+    border-color: rgb(var(--ui-border));
+    color: rgb(var(--ui-text-main));
+  }
+
+  .prof-btn-primary {
+    @apply px-6 py-2.5 rounded-xl font-bold transition-all active:scale-[0.98] text-white shadow-lg;
+    background-color: rgb(var(--ui-accent));
+    box-shadow: 0 10px 15px -3px rgba(var(--brand-primary-rgb), 0.3);
+  }
+
+  .prof-btn-secondary {
+    @apply px-6 py-2.5 rounded-xl font-bold transition-all border;
+    border-color: rgb(var(--ui-border));
+    background-color: transparent;
+    color: rgb(var(--ui-text-main));
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  background-color: rgb(var(--ui-border));
+}
+
+.titlebar-drag { -webkit-app-region: drag; }
+.titlebar-nodrag { -webkit-app-region: no-drag; }

@@ -1,0 +1,28 @@
+{
+  "appId": "com.employeetracker.app",
+  "productName": "Employee Tracker",
+  "directories": {
+    "output": "dist-electron"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "mac": {
+    "category": "public.app-category.productivity",
+    "target": ["dmg"],
+    "extendInfo": {
+      "NSLocationWhenInUseUsageDescription": "This app needs your location to verify your clock-in and clock-out events for attendance tracking.",
+      "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs your location to verify your clock-in and clock-out events for attendance tracking.",
+      "NSPermissionsUsageDescription": "This app requires location access for attendance verification."
+    }
+  },
+  "win": {
+    "target": ["nsis"]
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "category": "Utility"
+  }
+}
