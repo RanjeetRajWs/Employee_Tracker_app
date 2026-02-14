@@ -689,7 +689,7 @@ function createWindow() {
   });
 
   //opening developer console
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Geolocation and other permissions are now handled globally in app.whenReady()
   // to ensure they are registered before any requests are made by the renderer.
